@@ -1,0 +1,19 @@
+\documentclass[
+%review	% 匿名送审
+%signature % 签字版本
+]{bjtu_template}
+
+\begin{document}
+	\input{contents/id} % 输入个人基本信息
+	\makeFirstcover % 首页封面
+	\makeDeclareAuthorization{contents/annex/copyright} % 授权书
+	\makeSecondcover % 次页封面
+	\makeThanks{contents/acknowledgements} % 致谢
+	\makeAbstract{contents/abstract_cn}{contents/abstract_en} % 摘要
+	\makeTableofcontents % 目录
+	\makeBody{contents/body} % 正文
+	\makeReferences{contents/bibliography} % 参考文献
+	\makeResume{contents/resume}{contents/review-resume} % 简历	
+	\makeDeclareOriginal{contents/annex/originality} % 独创性声明
+	\makeDataSet % 数据集
+\end{document}
