@@ -31,7 +31,7 @@
 ## 致谢
 
 * 感谢制作初始模板的北交大同学；
-* 感谢[@minghua.li](https://github.com/learup和)[@LiangJinpeng](https://github.com/LiangJinpeng)对模板的巨大贡献。
+* 感谢[@minghua.li](https://github.com/learup)和[@LiangJinpeng](https://github.com/LiangJinpeng)对模板的巨大贡献。
 
 ## 软件许可证
 
