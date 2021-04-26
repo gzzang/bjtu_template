@@ -308,7 +308,7 @@ pdfstartview=FitH]{hyperref}
 		{\songti\zihao{-3}\bjtu@value@chinesetitle}
 		\vskip 0.8cm
 		{\songti\zihao{-3}\bjtu@value@englishtitle}
-		\vskip 3.8cm
+		\vfill
 		{\songti\zihao{4}\bjtu@label@firstcover@author}{\songti\zihao{4}\bjtu@value@authorname}
 		\vskip 0.7cm
 		{\songti\zihao{4}\bjtu@label@firstcover@advisor}{\songti\zihao{4}\bjtu@value@advisor}
