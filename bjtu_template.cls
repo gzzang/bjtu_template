@@ -35,7 +35,7 @@ citecolor=black,
 plainpages=false,
 pdfstartview=FitH]{hyperref}
 \RequirePackage{tikz}% foreach解决多章节不同文件的问题--gzzang_210414
-
+\RequirePackage{subfigure}%多图 by gzzang 210526 
 
 %==============================================
 % 模板中文设置
@@ -245,6 +245,8 @@ pdfstartview=FitH]{hyperref}
 \def\figureautorefname~#1\null{图~#1~\null}
 \def\tableautorefname~#1\null{表~#1~\null}
 \def\equationautorefname~#1\null{公式~(#1)~\null}
+\def\defnautorefname~#1\null{定理~#1~\null}
+\def\propautorefname~#1\null{命题~#1~\null}
 \newcommand\bjturef[1]{\autoref{#1}}
 
 
