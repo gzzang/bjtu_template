@@ -497,7 +497,6 @@ pdfstartview=FitH]{hyperref}
 % 参考文献
 %==============================================
 \newcommand{\makeReferences}[1]{
-	\backmatter	% 文后无编号部分 
 	\zihao{5}	%参考文献采用五号字体
 	\bibliographystyle{bjtu_template.bst}
 	\cleardoublepage	%\addcontentsline命令包含的命令会因为换页造成目录的引用链接页码不一致，需要在此之前加入换页命令
@@ -505,6 +504,18 @@ pdfstartview=FitH]{hyperref}
 	\addcontentsline{toc}{chapter}{\bjtu@label@reference}	%参考文献加入到中文目录
 	\setlength{\bibsep}{0.5ex}  % vertical spacing between references参考文献垂直间距减小
 	\bibliography{#1}
+}
+
+%==============================================
+% 附录
+%==============================================
+\newcommand{\makeAppendix}[2]{
+	\appendix
+	\renewcommand\theequation{\Alph{chapter}--\arabic{equation}}	
+	\renewcommand\thefigure{\Alph{chapter}--\arabic{figure}}
+	\renewcommand\thetable{\Alph{chapter}--\arabic{table}}
+	\zihao{5}
+	\foreach \x in {#1} {\input{\x}} 
 }
 
 %====================================================
@@ -550,6 +561,7 @@ pdfstartview=FitH]{hyperref}
 
 \newcommand{\makeResume}[2]
 {
+\backmatter	% 文后无编号部分
 \ifbjtu@review %如果是匿名送审
 \input{#2}
 \else %不是匿名送审
