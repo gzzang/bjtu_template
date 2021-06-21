@@ -509,7 +509,7 @@ pdfstartview=FitH]{hyperref}
 %==============================================
 % 附录
 %==============================================
-\newcommand{\makeAppendix}[2]{
+\newcommand{\makeAppendix}[1]{
 	\appendix
 	\renewcommand\theequation{\Alph{chapter}--\arabic{equation}}	
 	\renewcommand\thefigure{\Alph{chapter}--\arabic{figure}}
