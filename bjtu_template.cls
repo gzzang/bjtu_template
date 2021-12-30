@@ -25,6 +25,7 @@
 \RequirePackage{algpseudocode} % 用于算法 by gzang 201009
 \RequirePackage{lastpage} % 自动计算总页数by gzang 201009
 \RequirePackage{changepage} % 用于简历部分 
+\RequirePackage{anyfontsize} % 
 \RequirePackage[xetex,			% 生成有书签的pdf及其开关, 该宏包应放在所有宏包的最后, 防止宏包之间有冲突
 bookmarksnumbered=true,	%把节标号放入书签
 bookmarksopen=true,	%默认打开书签
@@ -35,7 +36,6 @@ citecolor=black,
 plainpages=false,
 pdfstartview=FitH]{hyperref}
 \RequirePackage{tikz}% foreach解决多章节不同文件的问题--gzzang_210414
-\RequirePackage{subfigure}%多图 by gzzang 210526 
 
 %==============================================
 % 模板中文设置
@@ -243,6 +243,7 @@ pdfstartview=FitH]{hyperref}
 \def\subsectionautorefname~#1\null{第~#1~节\null}
 \def\subsubsectionautorefname~#1\null{第~#1~节\null}
 \def\figureautorefname~#1\null{图~#1~\null}
+\def\subfigureautorefname~#1\null{图~#1~\null}
 \def\tableautorefname~#1\null{表~#1~\null}
 \def\equationautorefname~#1\null{公式~(#1)~\null}
 \def\defnautorefname~#1\null{定理~#1~\null}
