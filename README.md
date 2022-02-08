@@ -11,7 +11,11 @@
 
 * 原则上只需要将contents文件夹中的相关内容进行替换。
 * bjtu_template.tex 中标记review和signature分别对应送审版本和签字版本。
-* 运行 compile.bat 文件生成PDF文件。
+* Windows下运行 RUNME.bat 文件，Linuxs下运行 RUNME.sh 文件生成PDF文件。
+
+## PDF
+
+[PDF预览文件](https://github.com/gzzang/bjtu_template/releases/download/OK/bjtu_template.pdf)
 
 ## 文件
 
@@ -44,6 +48,7 @@ Linux下编译需补全字体文件
 * Ver 1.2
   * 添加论文题目双行功能
   * 添加答辩委员会名单
+  * 删除PDF预览文件
 
 ## 致谢
 
