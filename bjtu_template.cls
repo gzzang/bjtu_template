@@ -37,6 +37,8 @@ plainpages=false,
 pdfstartview=FitH]{hyperref}
 \RequirePackage{tikz}% foreach解决多章节不同文件的问题--gzzang_210414
 
+\RequirePackage{xparse}
+
 %==============================================
 % 模板中文设置
 %==============================================
@@ -266,6 +268,9 @@ pdfstartview=FitH]{hyperref}
 \newcommand\chinesekeyword[1]{\def\bjtu@value@chinesekeyword{#1}}
 \newcommand\englishkeyword[1]{\def\bjtu@value@englishkeyword{#1}}
 
+\newcommand\chairman[1]{\def\bjtu@value@chairman{#1}}
+\newcommand\reviewers[1]{\def\bjtu@value@reviewers{#1}}
+\newcommand\secretary[1]{\def\bjtu@value@secretary{#1}}
 
 \ifbjtu@review %如果是匿名送审
 \newcommand\authorname[1]{\def\bjtu@value@authorname{}}
@@ -276,9 +281,9 @@ pdfstartview=FitH]{hyperref}
 \newcommand\secretonly[1]{\def\bjtu@value@secretonly{}}
 \newcommand\yearonly[1]{\def\bjtu@value@yearonly{}}
 \newcommand\schoollength[1]{\def\bjtu@value@schoollength{}}
-\newcommand\reviewer[1]{\def\bjtu@value@reviewer{}}
-\newcommand\chairman[1]{\def\bjtu@value@chairman{}}
-\newcommand\member[1]{\def\bjtu@value@member{}}
+\newcommand\reviewernames[1]{\def\bjtu@value@reviewernames{}}
+\newcommand\chairmanname[1]{\def\bjtu@value@chairmanname{}}
+\newcommand\membernames[1]{\def\bjtu@value@membernames{}}
 \else %不是匿名送审
 \newcommand\authorname[1]{\def\bjtu@value@authorname{#1}}
 \newcommand\advisor[1]{\def\bjtu@value@advisor{#1}}
@@ -288,9 +293,9 @@ pdfstartview=FitH]{hyperref}
 \newcommand\secretonly[1]{\def\bjtu@value@secretonly{#1}}
 \newcommand\yearonly[1]{\def\bjtu@value@yearonly{#1}}
 \newcommand\schoollength[1]{\def\bjtu@value@schoollength{#1}}
-\newcommand\reviewer[1]{\def\bjtu@value@reviewer{#1}}
-\newcommand\chairman[1]{\def\bjtu@value@chairman{#1}}
-\newcommand\member[1]{\def\bjtu@value@member{#1}}
+\newcommand\reviewernames[1]{\def\bjtu@value@reviewernames{#1}}
+\newcommand\chairmanname[1]{\def\bjtu@value@chairmanname{#1}}
+\newcommand\membernames[1]{\def\bjtu@value@membernames{#1}}
 \fi
 
 
@@ -412,6 +417,34 @@ pdfstartview=FitH]{hyperref}
 \cleardoublepage
 }
 
+%==============================================
+% 学位委员会
+%==============================================
+\newcommand\genrows[2]{\@for\one:=#1\do{\expandafter#2\expandafter\genonerowbylist\expandafter{\one}}}
+\NewDocumentCommand{\genonerowbylist}{ >{\SplitArgument{2}{;}} m}{\genonerow #1}
+\NewDocumentCommand{\genonerow}{mmm}{ &\genvspace #1 \genvspacedown &\genvspace #2\genvspacedown &\genvspace #3\genvspacedown \\\hline}
+\newcommand\genchairmanrow[1]{\genvspace \bjtu@label@chairman \genvspacedown\expandafter\genonerowbylist\expandafter{#1}}
+\newcommand\genreviewerrows[1]{\genrows{#1}{\genvspace\bjtu@label@reviewer\genvspacedown}}
+\newcommand\gensecretaryrow[1]{\genvspace \bjtu@label@secretary \genvspacedown\expandafter\genonerowbylist\expandafter{#1}}
+\newcommand\genvspace{\vspace{-0.1cm}}
+\newcommand\genvspacedown{\vspace{0.3cm}}
+\newcommand\makeCommittee{
+\ifbjtu@review\relax
+\else
+	\chapter*{\bjtu@label@committee}
+	\zihao{4}
+	\begin{center}
+		\begin{tabularx}{\textwidth}{|X<{\centering}|X<{\centering}|p{5.8cm}<{\centering}|X<{\centering}|}
+			\hline
+			\genvspace\bfseries{答辩委员会}\genvspacedown&\genvspace\bfseries{姓名}\genvspacedown&\genvspace\bfseries{工作单位}\genvspacedown&\genvspace\bfseries{职称}\genvspacedown\\\hline
+			\genchairmanrow{\bjtu@value@chairman}
+			\genreviewerrows{\bjtu@value@reviewers}
+			\gensecretaryrow{\bjtu@value@secretary}
+		\end{tabularx}
+	\end{center}
+	\thispagestyle{noheader}
+\fi
+}
 %==============================================
 % 致谢
 %==============================================
@@ -603,6 +636,12 @@ pdfstartview=FitH]{hyperref}
 %==============================================
 % 数据集
 %==============================================
+% \newcommand\getchairmanname{\expandafter\getname\expandafter{\bjtu@value@chairman}}
+% \newcommand\getreviewernames{\expandafter\getnames\expandafter{\bjtu@value@reviewers}、}
+% \newcommand\getnames[1]{\@for\one:=#1\do{\expandafter\getname\expandafter{\one}}}
+% \NewDocumentCommand{\getname}{>{\SplitArgument{2}{;}}m}{\getfirst #1}
+% \NewDocumentCommand{\getfirst}{mmm}{#1}
+
 \newcommand\makeDataSet{
 	\chapter{\bjtu@label@dataset}
 	\markboth{\bjtu@label@dataset}{}
@@ -615,7 +654,7 @@ pdfstartview=FitH]{hyperref}
 			\multicolumn{2}{|l|}{学位授予单位名称*}	&	学位授予单位代码*	&	学位类别*	&	学位级别*	\\\hline
 			\multicolumn{2}{|l|}{\bjtu@label@firstcover@school}	&	\bjtu@label@dataset@schoolcodeonly	&	\bjtu@value@classification	&	\bjtu@value@degree	\\\hline
 			\multicolumn{2}{|l|}{论文题目*}	&	\multicolumn{2}{l|}{并列题目}	&	论文语种*	\\\hline
-			\multicolumn{2}{|>{\hsize=2\hsize}X|}{\bjtu@value@chinesetitlefirstline\bjtu@value@chinesetitlesecondline}	&	\multicolumn{2}{l|}{}	&	中文	\\\hline
+			\multicolumn{2}{|l|}{\bjtu@value@chinesetitlefirstline\bjtu@value@chinesetitlesecondline}	&	\multicolumn{2}{l|}{}	&	中文	\\\hline
 			作者姓名*	&	\multicolumn{2}{l|}{\bjtu@value@authorname}	&	学号*	&	\bjtu@value@studentnumber	\\\hline
 			\multicolumn{2}{|l|}{培养单位名称*}	&	培养单位代码*	&	培养单位地址	&	邮编	\\\hline
 			\multicolumn{2}{|l|}{\bjtu@label@firstcover@school}	&	\bjtu@label@dataset@schoolcodeonly	&	\bjtu@label@dataset@addressonly	&	\bjtu@label@dataset@postcodeonly	\\\hline
@@ -624,7 +663,7 @@ pdfstartview=FitH]{hyperref}
 			论文提交日期*	&	\multicolumn{4}{l|}{\bjtu@value@defenddate}	\\\hline
 			导师姓名*	&	\multicolumn{2}{l|}{\bjtu@value@advisor}	&	职称*	&	\bjtu@value@jobtitle	\\\hline
 			评阅人	&	\multicolumn{2}{l|}{答辩委员会主席*}	&	\multicolumn{2}{l|}{答辩委员会成员}	\\\hline
-			\bjtu@value@reviewer	&	\multicolumn{2}{l|}{\bjtu@value@chairman}	&	\multicolumn{2}{>{\hsize=2\hsize}X|}{\bjtu@value@member}\\\hline
+			\bjtu@value@reviewernames	&	\multicolumn{2}{l|}{\bjtu@value@chairmanname}	&	\multicolumn{2}{l|}{\bjtu@value@membernames}\\\hline
 			\multicolumn{5}{|l|}{电子版论文提交格式~~~~文本（\checkmark）  图像（ ） 视频（ ） 音频（ ） 多媒体（ ） 其他（ ）}	\\
 			\multicolumn{5}{|l|}{推荐格式：application/msword；application/pdf}	\\\hline
 			\multicolumn{2}{|l|}{电子版论文出版（发布）者}	&	\multicolumn{2}{l|}{电子版论文出版（发布）地}	&	权限声明	\\\hline
