@@ -123,7 +123,7 @@ FUNCTION {cap.period} 		{"\@. "}
 FUNCTION {cap.comma} 			{"\@, "}
 FUNCTION {cap.colon} 			{"\thinspace{}\textnormal{: }"}
 FUNCTION {cap.double.slash} 	{" //\thinspace{}"}
-FUNCTION {cap.dash} 			{"\thinspace{}\textnormal{--}\thinspace{}"}
+FUNCTION {cap.dash} 			{"\textnormal{-}"}
 
 % Predefined latex command used to format the style of bibitems
 FUNCTION {env.bibbegin} 		{ "\begin{thebibliography}" }
@@ -849,7 +849,7 @@ FUNCTION {format.citedate} {                      % String Emtry::format_citedat
                                                   % // since if the URL contains special symbols such
                                                   % // as '%', the \biburl{} will be broken.
 FUNCTION {format.url} {                           % String Emtry::format_url(String url) {
-  "\newline\url{" swap$ * "}" *                   %   return "\newline\url{" + url + "}";
+  "\url{" swap$ * "}" *                   %   return "\newline\url{" + url + "}";
 }                                                 % }
                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -39,6 +39,8 @@ pdfstartview=FitH]{hyperref}
 
 \RequirePackage{xparse}
 
+\urlstyle{same}
+
 %==============================================
 % 模板中文设置
 %==============================================
