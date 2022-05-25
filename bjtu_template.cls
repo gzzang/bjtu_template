@@ -656,7 +656,7 @@ pdfstartview=FitH]{hyperref}
 			\multicolumn{2}{|l|}{学位授予单位名称*}	&	学位授予单位代码*	&	学位类别*	&	学位级别*	\\\hline
 			\multicolumn{2}{|l|}{\bjtu@label@firstcover@school}	&	\bjtu@label@dataset@schoolcodeonly	&	\bjtu@value@classification	&	\bjtu@value@degree	\\\hline
 			\multicolumn{2}{|l|}{论文题目*}	&	\multicolumn{2}{l|}{并列题目}	&	论文语种*	\\\hline
-			\multicolumn{2}{|l|}{\bjtu@value@chinesetitlefirstline\bjtu@value@chinesetitlesecondline}	&	\multicolumn{2}{l|}{}	&	中文	\\\hline
+			\multicolumn{2}{|>{\hsize=2\hsize}X|}{\bjtu@value@chinesetitlefirstline\bjtu@value@chinesetitlesecondline}	&	\multicolumn{2}{l|}{}	&	中文	\\\hline
 			作者姓名*	&	\multicolumn{2}{l|}{\bjtu@value@authorname}	&	学号*	&	\bjtu@value@studentnumber	\\\hline
 			\multicolumn{2}{|l|}{培养单位名称*}	&	培养单位代码*	&	培养单位地址	&	邮编	\\\hline
 			\multicolumn{2}{|l|}{\bjtu@label@firstcover@school}	&	\bjtu@label@dataset@schoolcodeonly	&	\bjtu@label@dataset@addressonly	&	\bjtu@label@dataset@postcodeonly	\\\hline
