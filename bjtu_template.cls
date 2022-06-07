@@ -252,8 +252,12 @@ pdfstartview=FitH]{hyperref}
 \def\equationautorefname~#1\null{公式~(#1)~\null}
 \def\defnautorefname~#1\null{定理~#1~\null}
 \def\propautorefname~#1\null{命题~#1~\null}
+\def\algorithmautorefname~#1\null{算法~#1~\null}
 \newcommand\bjturef[1]{\autoref{#1}}
 
+\floatname{algorithm}{算法}
+\renewcommand{\algorithmicrequire}{\textbf{输入:}}
+\renewcommand{\algorithmicensure}{\textbf{输出:}}
 
 %==============================================
 % id.tex中的中文设置

@@ -3,11 +3,11 @@
 \subsection{3级标题}\label{subsec_three}
 \subsubsection{4级标题}\label{subsubsec_four}
 
-下面展示引用的实例：“如\bjturef{cha_one}所示”、“如\bjturef{sec_two}所示”、“如\bjturef{subsec_three}所示”、“如\bjturef{subsubsec_four}所示”、“如\bjturef{fig_label}所示”、“如\bjturef{fig_sub_1}所示”、“如\bjturef{fig_sub_2}所示”、“如\bjturef{fig_label_2}所示”、“如\bjturef{tab_institute}所示”、“如\bjturef{eq_emc}所示”。
+下面展示如何引用章节：“如\bjturef{cha_one}所示”、“如\bjturef{sec_two}所示”、“如\bjturef{subsec_three}所示”、“如\bjturef{subsubsec_four}所示”。
 
 引用著作\bjtucite{Patriksson1994}，引用论文\bjtucite{Rosenthal1973}，引用中文论文\bjtucite{zhang2020}，引用网页\bjtucite{wangye2020}。
 
-下面展示定理环境：“如\bjturef{def_1}所示”、“如\bjturef{prop_2}所示”。如需添加新的定理环境，请修改模板文件。
+下面展示如何引用定理：“如\bjturef{def_1}所示”、“如\bjturef{prop_2}所示”。如需添加新的定理环境，请修改模板文件。
 \begin{defn}\label{def_1}
 	这是一个定义。
 \end{defn}
@@ -15,9 +15,19 @@
 	这是一个命题。
 \end{prop}
 
+下面展示如何引用公式：“如\bjturef{eq_emc}所示”
 \begin{equation}\label{eq_emc}
 	E=mc^2
 \end{equation}
+
+下面展示如何引用图片：“如\bjturef{fig_label_2}所示”。
+
+\begin{bjtufigure}
+\includegraphics[width=\textwidth]{contents/annex/fig1}
+	\bjtufigcaption{fig_label_2}{章鱼}{Octopus}
+\end{bjtufigure}
+
+下面展示如何引用子图：“如\bjturef{fig_sub_1}所示”。
 
 \begin{bjtufigure}
 	\subfigure[章鱼]{\includegraphics[width=0.49\textwidth]{contents/annex/fig1}\label{fig_sub_1}}
@@ -25,11 +35,9 @@
 	\bjtufigcaption{fig_label}{章鱼和女孩}{Octopus and girl}
 \end{bjtufigure}
 
-\begin{bjtufigure}
-\includegraphics[width=\textwidth]{contents/annex/fig1}
-	\bjtufigcaption{fig_label_2}{章鱼}{Octopus}
-\end{bjtufigure}
 
+
+下面展示如何引用表格：“如\bjturef{tab_institute}所示”。
 
 \begin{bjtutable}
 	\bjtutabcaption{tab_institute}{研究所}{Institute}
@@ -42,7 +50,28 @@
 	\end{tabularx}
 \end{bjtutable}
 
+下面展示如何引用算法：“如\bjturef{alg_ptn}所示”。
 
+\begin{algorithm}[htbp] 
+	\caption{针对个体异质交通网络均衡问题的最佳反应算法}
+	\label{alg_ptn} 
+	\begin{algorithmic}[1]
+	 \Require
+	 博弈问题; 
+	 \Ensure 
+	 均衡策略组合$\widehat{\bm{s}}$；\\
+	 \textbf{初始化:}在策略组合集合中，随机选择一个策略组合$\widehat{\bm{s}}$，作为初始策略组合。即每位出行者等概率选择一种策略。
+	 \For{出行者${\ell}\in\mathcal{L}$（生成$\mathcal{L}$的一个随机排列进行循环）}
+	 \For{策略${r\in\mathcal{S}_{\ell}}$（生成$\mathcal{S}_{\ell}$的一个随机排列进行循环）}
+	 \If{$f_{{c}_{\ell}}\left(f_{\bm{\phi}}\left(\widehat{\bm{s}},\ell,{r}\right)\right)<f_{{c}_{\ell}}\left(\widehat{\bm{s}}\right)$}
+	 \State $\widehat{\bm{s}}\leftarrow{}f_{\bm{\phi}}\left(\widehat{\bm{s}},\ell,{r}\right)$
+	 \State 转步骤2
+	 \EndIf
+	 \EndFor
+	 \EndFor
+	 \State \Return 策略组合$\widehat{\bm{s}}$
+	\end{algorithmic} 
+   \end{algorithm}
 
 \chapter{1级标题}
 \section{2级标题}
