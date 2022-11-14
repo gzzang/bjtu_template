@@ -438,6 +438,7 @@ pdfstartview=FitH]{hyperref}
 \ifbjtu@review\relax
 \else
 	\chapter*{\bjtu@label@committee}
+	{
 	\zihao{4}
 	\begin{center}
 		\begin{tabularx}{\textwidth}{|X<{\centering}|X<{\centering}|p{5.8cm}<{\centering}|X<{\centering}|}
@@ -448,6 +449,7 @@ pdfstartview=FitH]{hyperref}
 			\gensecretaryrow{\bjtu@value@secretary}
 		\end{tabularx}
 	\end{center}
+	}
 	\thispagestyle{noheader}
 \fi
 }
