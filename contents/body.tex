@@ -24,7 +24,8 @@
 
 \begin{bjtufigure}
 \includegraphics[width=\textwidth]{contents/annex/fig1}
-	\bjtufigcaption{fig_label_2}{章鱼}{Octopus}
+	\bicaption[章鱼]{章鱼}{Octopus}
+	\label{fig_label_2}
 \end{bjtufigure}
 
 下面展示如何引用子图：“如\bjturef{fig_sub_1}所示”。
@@ -32,7 +33,8 @@
 \begin{bjtufigure}
 	\subfigure[章鱼]{\includegraphics[width=0.49\textwidth]{contents/annex/fig1}\label{fig_sub_1}}
 	\subfigure[女孩]{\includegraphics[width=0.49\textwidth]{contents/annex/fig2}\label{fig_sub_2}}
-	\bjtufigcaption{fig_label}{章鱼和女孩}{Octopus and girl}
+	\bicaption[章鱼和女孩]{章鱼和女孩}{Octopus and girl}
+	\label{fig_label}
 \end{bjtufigure}
 
 
@@ -40,7 +42,8 @@
 下面展示如何引用表格：“如\bjturef{tab_institute}所示”。
 
 \begin{bjtutable}
-	\bjtutabcaption{tab_institute}{研究所}{Institute}
+	\bicaption[研究所]{研究所}{Institute}
+	\label{tab_institute}
 	\begin{tabularx}{\textwidth}{X<{\centering}X<{\centering}X<{\centering}}
 		\toprule
 		学校&学院&系所\\
@@ -49,6 +52,75 @@
 		\bottomrule
 	\end{tabularx}
 \end{bjtutable}
+
+下面展示如何引用跨页表格：“如\bjturef{tab_institute}所示”。
+
+\setlength{\LTleft}{0pt} \setlength{\LTright}{0pt}
+
+{\small
+\begin{longtable}{@{\extracolsep{\fill}}cccc@{}}
+\bicaption[研究所们]{研究所们}{Institutes}
+\label{tab_institutes}\\
+
+\toprule
+学校&学校&学院&系所 \\ \midrule
+\endfirsthead
+
+\multicolumn{4}{l}{\tablename\ \thetable\ （续）}\\
+\toprule
+学校&学校&学院&系所 \\ \midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+北京交通大学&北京交通大学&交通运输学院&系统科学所\\
+\end{longtable}
+}
 
 下面展示如何引用算法：“如\bjturef{alg_ptn}所示”。
 
@@ -73,21 +145,7 @@
 	\end{algorithmic} 
    \end{algorithm}
 
-\chapter{1级标题}
-\section{2级标题}
-\subsection{3级标题}
-\subsubsection{4级标题}
-\subsubsection{4级标题}
-\subsection{3级标题}
-\subsubsection{4级标题}
-\subsubsection{4级标题}
-\section{2级标题}
-\subsection{3级标题}
-\subsubsection{4级标题}
-\subsubsection{4级标题}
-\subsection{3级标题}
-\subsubsection{4级标题}
-\subsubsection{4级标题}
+下面测试中English混\hspace{0em}[1]排。
 
 \chapter{1级标题}
 \section{2级标题}
@@ -104,19 +162,3 @@
 \subsection{3级标题}
 \subsubsection{4级标题}
 \subsubsection{4级标题}
-
-\chapter{1级标题}
-\section{2级标题}
-\subsection{3级标题}
-\subsubsection{4级标题}
-\subsubsection{4级标题}
-\subsubsection{4级标题}
-\subsection{3级标题}
-\subsubsection{4级标题}
-\subsubsection{4级标题}
-\subsubsection{4级标题}
-\subsection{3级标题}
-\subsubsection{4级标题}
-\subsubsection{4级标题}
-\subsubsection{4级标题}
-

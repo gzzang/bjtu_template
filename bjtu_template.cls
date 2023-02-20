@@ -17,7 +17,8 @@
 \RequirePackage{mathtools,amsthm,amssymb,bm,mathrsfs} 
 \RequirePackage{graphicx}	%插入图宏包
 \RequirePackage{subfigure}	%插入图宏包
-\RequirePackage{ccaption} %支持双语标题
+\RequirePackage{caption} %图表标题设置宏包 by gzang 230220
+\RequirePackage[list=off]{bicaption} %图表标题设置宏包 by gzang 230220
 \RequirePackage[numbers,sort&compress]{natbib}	%参考文献宏包包括cite宏包，所以不需要cite宏包
 \RequirePackage{pdfpages}	%插入pdf页面
 \RequirePackage{algorithm}	%插入算法描述
@@ -36,8 +37,22 @@ citecolor=black,
 plainpages=false,
 pdfstartview=FitH]{hyperref}
 \RequirePackage{tikz}% foreach解决多章节不同文件的问题--gzzang_210414
-
 \RequirePackage{xparse}
+\RequirePackage{longtable}%跨页表格宏包 by gzang 230220
+
+%字体修改 by gzang 230220
+\ExplSyntaxOn
+\ctex_set_font_size:Nnn \Huge  { 2 } { }
+\ctex_set_font_size:Nnn \huge  {  -2 } { }
+\ctex_set_font_size:Nnn \LARGE { 3 } { }
+\ctex_set_font_size:Nnn \Large {  -3 } { }
+\ctex_set_font_size:Nnn \large { 4 } { }
+\ctex_set_font_size:Nnn \normalsize   {  -4 } { }
+\ctex_set_font_size:Nnn \small        { 5 } { }
+\ctex_set_font_size:Nnn \footnotesize {  -5 } { }
+\ctex_set_font_size:Nnn \scriptsize   { 6 } { }
+\ctex_set_font_size:Nnn \tiny  {  -6 } { }
+\ExplSyntaxOff
 
 \urlstyle{same}
 
@@ -93,18 +108,18 @@ pdfstartview=FitH]{hyperref}
 %==============================================
 % 图表标号设置
 %==============================================
-% Caption setting in ccaption pacakge
-\captiondelim{\ }
-\captionnamefont{\small}
-\captiontitlefont{\small}
-
 % 定公式、图、表、算法的编号为"3-1"的形式，即分隔符由.变为短杠
 % 把"--"变成了"-" by gzang 201006
 \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
 \renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}}
 \renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}
 \renewcommand\p@subfigure{\thefigure}
-
+%双语标题设置 by gzang 230220
+\captionsetup{format=plain,labelformat=simple,labelsep=space,justification=centering,font=small}
+\captionsetup[figure][bi-first]{name=图}
+\captionsetup[figure][bi-second]{name=Figure}
+\captionsetup[table][bi-first]{name=表}
+\captionsetup[table][bi-second]{name=Table}
 
 %==============================================
 % 页眉设置
@@ -217,14 +232,10 @@ pdfstartview=FitH]{hyperref}
 %==============================================
 % 图表环境
 %==============================================
-
-\newcommand\bjtutabcaption[3]{\bicaption[#1]{#2}{#2}{Table}{#3}}
-\newcommand\bjtufigcaption[3]{\bicaption[#1]{#2}{#2}{Figure}{#3}}
-
 \newenvironment{bjtutable}
 {
 	\begin{table}[!htbp]
-		\zihao{5}
+	\small
 }
 {
 	\end{table}
