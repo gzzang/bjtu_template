@@ -16,7 +16,7 @@
 
 ## PDF
 
-[PDF预览文件](https://github.com/gzzang/bjtu_template/releases/download/OK/bjtu_template.pdf)
+[PDF预览文件](https://github.com/gzzang/bjtu_template/releases)
 
 ## 文件
 
@@ -61,6 +61,7 @@ Linux下编译需补全字体文件
 - v1.4.2 修正全文字体设置不正确的问题
 - v1.5.0 添加跨页表格
 - v1.6.0 添加答辩决议书部分
+- v1.6.1 修正最新PDF预览链接
 
 ## 致谢
 
