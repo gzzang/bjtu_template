@@ -25,13 +25,16 @@
 |abstract_cn.tex|中文摘要|
 |abstract_en.tex|英文摘要|
 |acknowledgements.tex|致谢|
+|appendix.tex|附录|
 |bibliography.bib|参考文献库|
 |body.tex|正文|
-|copyright.pdf|签字版版权说明|
 |id.tex|基本信息|
-|originality.pdf|签字版原创性说明|
+|resolution.tex|答辩决议书|
 |resume.tex|正常简历|
-|abstract_en.tex|盲审简历|
+|review_resume.tex|盲审简历|
+|signed_copyright.pdf|签字版版权说明|
+|signed_originality.pdf|签字版原创性说明|
+|signed_resolution.pdf|签字版答辩决议书|
 
 ## 附加
 
@@ -57,6 +60,7 @@ Linux下编译需补全字体文件
 - v1.4.1 添加算法环境
 - v1.4.2 修正全文字体设置不正确的问题
 - v1.5.0 添加跨页表格
+- v1.6.0 添加答辩决议书部分
 
 ## 致谢
 

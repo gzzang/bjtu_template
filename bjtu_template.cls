@@ -575,7 +575,8 @@ pdfstartview=FitH]{hyperref}
 %====================================================
 % 个人简历和取得的成果
 %====================================================
-\newenvironment{ResumePublications}{ %
+\newenvironment{ResumePublications}{
+	\cleardoublepage
 	\chapter{\bjtu@label@ResumePublications}
 	\zihao{5}}
 
@@ -622,6 +623,24 @@ pdfstartview=FitH]{hyperref}
 \input{#1}
 \fi
 }
+%==========================================================
+% 答辩决议书
+%==========================================================
+
+\newenvironment{Resolution}{
+	\cleardoublepage
+	\chapter{\bjtu@label@resolution}
+	\zihao{5}}
+
+\newcommand\makeResolution[2]{%
+\cleardoublepage
+	\ifbjtu@signature
+		\thispagestyle{empty}
+		\includepdf[addtotoc={1,chapter,1,\bjtu@label@resolution,}]{#2}
+	\else
+	\input{#1}
+\fi
+}
 
 %==========================================================
 % 独创性声明
@@ -648,8 +667,6 @@ pdfstartview=FitH]{hyperref}
 		\end{minipage}
 	\end{minipage}
 \fi
-	
-	\cleardoublepage
 }
 
 %==============================================
@@ -662,6 +679,7 @@ pdfstartview=FitH]{hyperref}
 % \NewDocumentCommand{\getfirst}{mmm}{#1}
 
 \newcommand\makeDataSet{
+	\cleardoublepage
 	\chapter{\bjtu@label@dataset}
 	\markboth{\bjtu@label@dataset}{}
 	\zihao{5}

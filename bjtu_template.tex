@@ -1,12 +1,12 @@
 \documentclass[
-%review	% 送审版本
-%signature % 签字版本
+% review	% 送审版本
+% signature % 签字版本
 ]{bjtu_template}
 
 \begin{document}
 	\input{contents/id} % 输入个人基本信息
 	\makeFirstcover % 首页封面
-	\makeDeclareAuthorization{contents/copyright} % 授权书
+	\makeDeclareAuthorization{contents/signed_copyright} % 授权书
 	\makeSecondcover % 次页封面
 	\makeCommittee % 答辩委员会名单
 	\makeThanks{contents/acknowledgements} % 致谢
@@ -15,7 +15,8 @@
 	\makeBody{contents/body} % 正文
 	\makeReferences{contents/bibliography} % 参考文献
 	\makeAppendix{contents/appendix}
-	\makeResume{contents/resume}{contents/review-resume} % 简历	
-	\makeDeclareOriginal{contents/originality} % 独创性声明
+	\makeResume{contents/resume}{contents/review_resume} % 简历	
+	\makeResolution{contents/resolution}{contents/signed_resolution} % 答辩决议书
+	\makeDeclareOriginal{contents/signed_originality} % 独创性声明
 	\makeDataSet % 数据集
 \end{document}
