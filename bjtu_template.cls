@@ -295,6 +295,8 @@ pdfstartview=FitH]{hyperref}
 \newcommand\studentnumber[1]{\def\bjtu@value@studentnumber{}}
 \newcommand\jobtitle[1]{\def\bjtu@value@jobtitle{}}
 
+
+\newcommand\thesisfunding[1]{\def\bjtu@value@thesisfunding{}}
 \newcommand\secretonly[1]{\def\bjtu@value@secretonly{}}
 \newcommand\yearonly[1]{\def\bjtu@value@yearonly{}}
 \newcommand\schoollength[1]{\def\bjtu@value@schoollength{}}
@@ -307,6 +309,7 @@ pdfstartview=FitH]{hyperref}
 \newcommand\studentnumber[1]{\def\bjtu@value@studentnumber{#1}}
 \newcommand\jobtitle[1]{\def\bjtu@value@jobtitle{#1}}
 
+\newcommand\thesisfunding[1]{\def\bjtu@value@thesisfunding{#1}}
 \newcommand\secretonly[1]{\def\bjtu@value@secretonly{#1}}
 \newcommand\yearonly[1]{\def\bjtu@value@yearonly{#1}}
 \newcommand\schoollength[1]{\def\bjtu@value@schoollength{#1}}
@@ -687,7 +690,7 @@ pdfstartview=FitH]{hyperref}
 		表1.1：数据集
 		\begin{tabularx}{\textwidth}{|X|X|X|X|X|}\hline
 			关键词*	&	密级*	&	中图分类号	&	UDC	&	论文资助	\\\hline
-			{\bjtu@value@chinesekeyword}	&	公开	&  & 	&	{} \\\hline
+			{\bjtu@value@chinesekeyword}	&	公开	&  & 	&	\bjtu@value@thesisfunding \\\hline
 			\multicolumn{2}{|l|}{学位授予单位名称*}	&	学位授予单位代码*	&	学位类别*	&	学位级别*	\\\hline
 			\multicolumn{2}{|l|}{\bjtu@label@firstcover@school}	&	\bjtu@label@dataset@schoolcodeonly	&	\bjtu@value@classification	&	\bjtu@value@degree	\\\hline
 			\multicolumn{2}{|l|}{论文题目*}	&	\multicolumn{2}{l|}{并列题目}	&	论文语种*	\\\hline
